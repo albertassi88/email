@@ -1,0 +1,30 @@
+<div class="modal-body">
+  <div class="col header-modal">
+    <span class="fs-5 fw-semibold font-inter">{{data?.title}}</span>
+    <button type="button" class="btn-close" aria-label="Close" (click)="handleClick(false)"></button>
+  </div>
+  <div class="modal-footer" style="margin-bottom: -10px;"></div>
+  <form class="box-input" [formGroup]="form">
+    <div class="mb-3 col input">
+      <input
+        class="form-control inputFile"
+        type="file"
+        id="formFileMultiple"
+        formControlName="upload"
+        multiple
+        (change)="escolherArquivos($event)"
+      >
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary fw-semibold" (click)="handleClick(false)">CANCELAR</button>
+  <button
+    [disabled]="form.invalid"
+    [ngClass]="{'btn-secondary': form.invalid, 'btn-primary fw-semibold': !form.invalid}"
+    type="button"
+    class="btn fw-semibold"
+    (click)="handleClick(true)">
+      CONFIRMAR
+    </button>
+</div>

@@ -1,0 +1,95 @@
+<div class="container-login">
+  <div class="logo">
+    <app-logo></app-logo>
+  </div>
+  <div class="box-center"></div>
+  <div class="login-box">
+    <form class="box-input" [formGroup]="form">
+      <span class="span-teste fs-5 font-inter">Comece seu teste grátis!</span>
+      <div class="col input">
+        <input
+          [(ngModel)]="body.name"
+          type="text"
+          formControlName="nome"
+          class="form-control"
+          letras
+          placeholder="Digite o seu nome"
+        >
+      </div>
+      <div class="col input">
+        <input
+          [(ngModel)]="body.company"
+          type="text"
+          formControlName="empresa"
+          class="form-control"
+          placeholder="Digite o nome da empresa"
+        >
+      </div>
+      <div class="col input">
+        <input
+          [(ngModel)]="body.cnpjCpf"
+          mask="00.000.000/0000-00 || 000.000.000-00"
+          type="text"
+          formControlName="cnpjCpf"
+          class="form-control"
+          placeholder="Digite o cnpj ou cpf"
+        >
+      </div>
+      <app-loading *ngIf="statusLoading"></app-loading>
+      <div class="col input">
+        <input
+          [(ngModel)]="body.email"
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Digite o e-mail da empresa"
+        >
+      </div>
+      <div class="col input">
+        <input
+          [(ngModel)]="body.password"
+          [ngClass]="{'is-invalid': !senhaInvalida}"
+          [type]="hide1 ? 'password' : 'text'"
+          type="password"
+          formControlName="senha"
+          class="form-control"
+          placeholder="Senha de no mínimo 8 caracteres"
+        >
+        <div class="icon-visib">
+          <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div>
+      </div>
+      <div class="col input">
+        <input
+          [(ngModel)]="body.passwordRepeat"
+          [ngClass]="{'is-invalid': !senhaInvalida}"
+          [type]="hide2 ? 'password' : 'text'"
+          type="password"
+          formControlName="senhaRepetida"
+          class="form-control"
+          placeholder="Repita a senha"
+        >
+        <div class="icon-visib">
+          <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div>
+      </div>
+      <div class="col" style="margin-top: 18px;">
+        <button
+        [disabled]="form.invalid"
+        [ngClass]="{'btn-secondary': form.invalid, 'btn-primary fw-semibold': !form.invalid}"
+        type="button"
+        class="btn fw-semibold"
+        (click)="loadCadastrar()"
+        >
+        CONFIRMAR
+        </button>
+      </div>
+      <div class="col input">
+        <div class="box-conta">
+          <span class="fw-medium span-conta font-inter">Já possui uma conta?
+            <span class="fw-semibold mouse" (click)="voltarLogin()">ENTRAR</span>
+          </span>
+        </div>
+      </div>
+  </form>
+</div>

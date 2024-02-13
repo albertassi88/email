@@ -1,0 +1,73 @@
+<div class="container-home">
+  <div class="img">
+    <app-logo></app-logo>
+  </div>
+  <div class="box-home">
+    <div class="box-mat-card">
+      <span class="default" (click)="abrirLogin()">
+        <mat-card class="cursor">
+            <mat-card-title>
+              <p class="font-inter roboto" style="font-size: 34px;">Envio de boletos automatizados</p>
+            </mat-card-title>
+            <img
+              src="../../assets//img/line.svg"
+              width="100%"
+              height="100%"
+              style="margin-top: -4px; margin-bottom: 8px;"
+            />
+            <mat-card-content>
+              <span class="font-inter">Descomplicamos o faturamento para você:</span>
+              <p class="font-inter" style="line-height: 21px;">Basta adicionar seus boletos uma única vez, e nosso sistema cuida do resto. Mensalmente, os boletos são enviados automaticamente, economizando seu tempo e assegurando que os pagamentos sejam feitos no prazo.
+              </p>
+            </mat-card-content>
+        </mat-card>
+      </span>
+
+      <div class="default-off default" (click)="abrirLogin()">
+        <mat-card class="cursor2">
+            <mat-card-title>
+              <p class="font-inter roboto" style="font-size: 34px;">Como funciona?</p>
+            </mat-card-title>
+            <mat-card-content >
+              <p class="font-inter" style="margin-bottom: 28px; line-height: 20px;">Cadastre-se de forma rápida e fácil, basta selecionar os boletos que deseja enviar.</p>
+              <p class="font-inter" style="margin-bottom: 28px; line-height: 20px;">Mensalmente, os boletos serão automaticamente enviados para o e-mail do seu cliente, de acordo com a data de vencimento.</p>
+              <p class="font-inter" style="line-height: 20px;">Seu cliente receberá alertas automáticos por e-mail, informando sobre o vencimento com antecedência.</p>
+            </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="default-off-painel">
+        <mat-card-title>
+          <p class="font-inter roboto painel" style="font-size: 34px;">Monitore os boletos enviados e os que estão aguardando envio.</p>
+        </mat-card-title>
+        <mat-card>
+          <img src="../../../assets/img/painel.png" alt="">
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer" style="margin-top: 10px;"><p class="font-inter font-min">© 2024 Verb Tech. Todos os direitos reservados.</p>
+  <div class="box-footer">
+    <span class="d-inline-block" (click)="abrirWhatsApp()" tabindex="0" data-bs-toggle="tooltip" data-bs-title="Disabled tooltip">
+      <img
+        class="icon"
+        style="cursor: pointer;"
+        src="../../assets//img/zap.jpeg"
+        width="35px"
+        height="35px"
+      />
+    </span>
+    <span class="d-inline-block" (click)="abrirInstagram()">
+      <img
+        class="icon"
+        style="cursor: pointer; margin-left: 10px;"
+        src="../../assets//img/instagram.jpg"
+        width="35px"
+        height="35px"
+      />
+    </span>
+  </div>
+</div>
+

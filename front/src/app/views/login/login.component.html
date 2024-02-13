@@ -1,0 +1,50 @@
+<div class="container-login">
+  <div class="logo">
+    <app-logo></app-logo>
+  </div>
+  <div class="box-center"></div>
+  <div class="login-box">
+    <form class="box-input" [formGroup]="form">
+      <div class="col" style="margin-top: 10px;">
+        <input
+          [(ngModel)]="body.email"
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Digite seu e-mail"
+        >
+      </div>
+      <app-loading *ngIf="statusLoading"></app-loading>
+      <div class="col" style="margin-top: 10px;">
+        <input
+          [(ngModel)]="body.password"
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          class="form-control"
+          placeholder="Digite sua senha"
+          required
+        >
+        <div class="icon-visib">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div>
+      </div>
+      <div class="col" style="margin-top: 14px;">
+        <button
+          [disabled]="form.invalid"
+          [ngClass]="{'btn-secondary': form.invalid, 'btn-primary fw-semibold': !form.invalid}"
+          type="button"
+          class="btn fw-semibold"
+          (click)="loadEntrar()"
+        >
+          ENTRAR
+        </button>
+      </div>
+    <div class="box-alt">
+      <p class="esqueceu fw-medium font-inter" style="margin-top: 6px;" (click)="loadEsqueceuSenha()">Esqueceu sua senha?</p>
+      <div class="span fw-medium" (click)="loadNovoCadastro()">
+        <span class="font-inter fw-semibold">Não tem cadastro?</span>
+        <span class="font-inter fw-semibold">Faça um teste grátis!</span>
+      </div>
+    </div>
+  </form>
+</div>

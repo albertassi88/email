@@ -1,0 +1,36 @@
+<div class="modal-body">
+  <div class="col header-modal">
+    <span class="fs-5 fw-semibold font-inter">{{data?.title}}</span>
+    <button type="button" class="btn-close" aria-label="Close" (click)="handleClick(false)"></button>
+  </div>
+  <div class="modal-footer" style="margin-bottom: -10px;"></div>
+  <form class="form" [formGroup]="form">
+    <div>
+      <label class="col-form-label font-inter">Nome do cliente:</label>
+      <input type="text" class="form-control" formControlName="name" letras [ngModel]="data?.dados?.name">
+    </div>
+    <div>
+      <label class="col-form-label font-inter">Nome da empresa:</label>
+      <input type="text" class="form-control" formControlName="company" [ngModel]="data.dados?.company">
+    </div>
+    <div>
+      <label class="col-form-label font-inter">Cnpj/cpf do cliente:</label>
+      <input type="text" mask="00.000.000/0000-00 || 000.000.000-00" class="form-control" formControlName="cnpjCpf" [ngModel]="data.dados?.cnpjCpf">
+    </div>
+    <div>
+      <label class="col-form-label font-inter">E-mail da empresa:</label>
+      <input type="email" class="form-control" formControlName="email" [ngModel]="data.dados?.email">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary fw-semibold" (click)="handleClick(false)">CANCELAR</button>
+  <button
+    [disabled]="form.invalid"
+    [ngClass]="{'btn-secondary': form.invalid, 'btn-primary fw-semibold': !form.invalid}"
+    type="button"
+    class="btn fw-semibold"
+    (click)="handleClick(true)">
+      CONFIRMAR
+    </button>
+</div>

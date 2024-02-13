@@ -1,0 +1,137 @@
+@import './cliente.style.scss';
+
+.font-inter {
+  font-family: 'Roboto Slab', sans-serif !important;
+}
+
+.font-inter-nunito {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 17px;
+}
+
+.closeVazio {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -14px;
+  margin-top: 4px;
+}
+
+.load-client {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -50px;
+}
+
+.footer-tag {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: -27px;
+  margin-top: 10px;
+
+  .box-tag {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
+    .msgAzul {
+      width: 10px;
+      height: 10px;
+      background-color: #2d8ceb;
+      border-radius: 4px;
+    }
+
+    span {
+      margin-left: 4px;
+    }
+
+    .msgVermelho {
+      width: 10px;
+      height: 10px;
+      background-color: #f85230;
+      border-radius: 4px;
+    }
+  }
+}
+
+.box-filter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .input {
+    z-index: 1000;
+    margin-left: 10px;
+  }
+}
+.check {
+  z-index: 1000;
+  margin-left: 30px;
+}
+
+.box-title-filter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 72px;
+
+  p {
+    background-color: white;
+    z-index: 1000;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 940px) {
+  .box-center {
+    position: absolute;
+    height: 74%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login-box {
+      margin-top: 171px;
+    }
+  }
+
+  .box-dados {
+    width: 100%;
+    top: 660px;
+  }
+}
+
+@media (max-width: 940px) {
+  .box-center {
+    position: absolute;
+    height: 74%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login-box {
+      margin-top: 171px;
+    }
+  }
+
+  .box-dados {
+    width: 100%;
+    top: 660px;
+  }
+}
+
+
+
+
+
+

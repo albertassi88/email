@@ -1,0 +1,52 @@
+<div class="container-login">
+  <div class="logo">
+    <app-logo></app-logo>
+  </div>
+  <div class="box-center"></div>
+  <form class="login-box" [formGroup]="form">
+    <span class="header-senha fs-5">Redefinir a senha</span>
+    <p class="p fs-7">
+      Defina uma senha segura para ter acesso à plataforma Verb Tech.
+    </p>
+    <div class="box-input">
+      <div class="col">
+        <input
+          type="password"
+          [type]="hide1 ? 'password' : 'text'"
+          formControlName="novaSenha"
+          class="form-control"
+          placeholder="Digite a nova senha"
+        />
+        <div class="icon-visib">
+          <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div>
+      </div>
+      <app-loading *ngIf="statusLoading"></app-loading>
+      <div class="col" style="margin-top: 10px;">
+        <input
+          type="password"
+          [type]="hide2 ? 'password' : 'text'"
+          formControlName="repetirSenha"
+          class="form-control"
+          placeholder="Repita a nova senha"
+        />
+        <div class="icon-visib">
+          <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div>
+      </div>
+      <div class="col" style="margin-top: 22px;">
+        <button
+          [disabled]="form.invalid"
+          [class.btn-secondary]="form.invalid"
+          [class.btn-primary]="!form.invalid"
+          type="button"
+          class="btn fw-semibold"
+          (click)="loadCriarNovaSenha()"
+        >
+          REDEFINIR A SENHA
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+

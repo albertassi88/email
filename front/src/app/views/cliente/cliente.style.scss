@@ -1,0 +1,265 @@
+.container-login {
+  height: 100%;
+  display: flex;
+  .logo {
+    height: 100%;
+    width: 73%;
+    z-index: 1;
+  }
+}
+.box-center {
+  position: absolute;
+  height: 100%;
+  width: 35%;
+  background-color: #4799eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .login-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+
+    .btn {
+      font-weight: 700;
+    }
+
+    .box-name {
+      position: relative;
+      top: -90px
+    }
+
+    .submit {
+      height: 50%;
+      width: 81%;
+      margin-top: 20px;
+
+      button {
+        margin: auto;
+        margin-left: 5px;
+        height: 35px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 4px;
+        color: white;
+        border: none;
+      }
+    }
+
+    .box-input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 40px;
+
+      .input {
+        margin-top: 8px;
+      }
+
+      .span-cadastrar {
+        font-weight: 600;
+        color:  rgb(253, 140, 2);
+        margin-bottom: 4px;
+      }
+
+      mat-form-field {
+        width: 80%;
+
+        .input {
+          height: 26px;
+          width: 100%;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+        }
+      }
+    }
+    form {
+      button {
+        width: 100%;
+      }
+    }
+    width: 62%;
+    height: 24rem;
+    background-color: white;
+    box-shadow: 0px 2px 3px rgb(0 0 0 / 12%);
+    border-radius: 10px;
+    z-index: 1;
+    min-width: 300px;
+  }
+}
+.box-dados {
+  background-color: white !important;
+  position: absolute;
+  width: 65%;
+  right: 0;
+
+  .filter {
+    display: flex;
+    flex-direction: row;
+    background-color: #f3f2f2 !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 14px;
+    margin-top: -18px;
+  }
+
+  .box-img {
+    width: 100%;
+    height: 882px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .img-email {
+      width: 50%;
+    }
+  }
+
+  .header-painel {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: rgb(253, 140, 2);
+  }
+
+  .box-perfil {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    position: relative;
+    top: -50px;
+    margin-left: -12px;
+  }
+
+  .scroll {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 768px;
+
+    .box-card {
+      height: 100px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border: 1px solid rgb(222, 178, 234);
+      border-radius: 10px;
+
+      mat-card {
+        margin-top: 8px;
+
+        span {
+          margin-left: 10px;
+          margin-top: 12px;
+          font-weight: 600;
+        }
+
+        .spanColor {
+          color: #565659;
+          font-weight: 600;
+        }
+
+        .div-boletos {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          font-weight: 600;
+          color: rgb(81, 79, 79);
+
+          .box-actions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            justify-content: end;
+            margin-right: 10px;
+            margin-top: -23px;
+
+            button {
+              cursor: pointer;
+              border: none;
+            }
+          }
+
+          .dados {
+            width: 86%;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow-y: auto;
+            margin-right: 39px;
+
+            .boletoAzul {
+              width: 20px;
+              height: 20px;
+              background-color: #2d8ceb;
+              border-radius: 4px;
+              margin-top: 8px;
+              margin-left: 10px;
+            }
+
+            .boletoVermelho {
+              width: 20px;
+              height: 20px;
+              background-color: #f85230;
+              border-radius: 4px;
+              margin-top: 8px;
+              margin-left: 10px;
+            }
+          }
+          .btns {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+            margin-right: 10px;
+            margin-bottom: 33px;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .error .mdc-snackbar__surface::before {
+  background-color: rgb(228, 53, 47);
+}
+
+::ng-deep .error .mdc-snackbar__label {
+  z-index: 50;
+}
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__label {
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+::ng-deep .success .mdc-snackbar__surface::before {
+  background-color: rgb(50, 164, 15);
+}
+
+::ng-deep .success .mdc-snackbar__label {
+  z-index: 50;
+}
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__label {
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.mat-mdc-card {
+  box-shadow: none
+}
+

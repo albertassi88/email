@@ -1,0 +1,52 @@
+<div class="container-login">
+  <div class="logo">
+    <app-logo></app-logo>
+  </div>
+  <div class="box-center"></div>
+  <form class="login-box" [formGroup]="form" *ngIf="!statusEmail">
+    <span class="header-senha fs-5">Esqueci a senha</span>
+    <p class="p fs-7 font-inter fw-semibold">
+      Insira seu e-mail para receber as informações de recuperação da conta.
+    </p>
+    <div class="box-input">
+      <div class="col">
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Digite seu e-mail"
+        />
+      </div>
+      <app-loading *ngIf="statusLoading"></app-loading>
+      <div class="col" style="margin-top: 14px;">
+        <button
+          [disabled]="form.invalid"
+          [class.btn-secondary]="form.invalid"
+          [class.btn-primary]="!form.invalid"
+          type="button"
+          class="btn fw-semibold"
+          (click)="loadRecuperarSenha()"
+        >
+          RECUPERAR SENHA
+        </button>
+      </div>
+      <div class="box-alt">
+        <p class="esqueceu fw-medium font-inter" (click)="loadLembrouSenha()">Lembrou a senha? Entrar</p>
+      </div>
+    </div>
+  </form>
+
+  <div class="container-send" *ngIf="statusEmail">
+    <img src="../../../assets/img/email.png" alt="" class="email">
+    <div class="box-send">
+      <span class="fw-medium font-inter">Um e-mail com instruções para criar uma nova senha foi</span>
+      <span class="fw-medium font-inter">enviado para: <span class="fw-semibold">{{emailEnviado}}</span></span>
+    </div>
+    <br>
+    <span class="fw-medium font-inter">Por favor, verifique sua caixa de entrada.</span>
+    <br>
+    <span (click)="voltarLogin()" class="fw-medium fw-semibold color-login font-inter">Voltar para a página de login</span>
+  </div>
+
+</div>
+

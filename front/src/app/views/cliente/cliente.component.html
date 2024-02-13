@@ -1,0 +1,242 @@
+<div class="container-login">
+  <div class="logo">
+    <app-logo></app-logo>
+  </div>
+  <div class="box-center">
+    <div class="login-box">
+      <div class="box-name">
+        <span style="color: white;" class="fs-4 font-inter fw-semibold">Olá {{nameUser?.name}}</span>
+      </div>
+      <form class="box-input" [formGroup]="form">
+        <span class="span-cadastrar fs-4 font-inter fw-semibold">Cadastrar boletos</span>
+        <div class="col input">
+          <input
+            [(ngModel)]="body.name"
+            type="text"
+            formControlName="name"
+            class="form-control"
+            letras
+            placeholder="Digite o nome do cliente (Opcional)"
+          >
+        </div>
+        <div class="col input">
+          <input
+          [(ngModel)]="body.company"
+          type="text"
+          formControlName="company"
+          class="form-control"
+          placeholder="Digite o nome da empresa"
+        >
+        </div>
+        <app-loading *ngIf="statusLoading"></app-loading>
+        <div class="col input">
+          <input
+          [(ngModel)]="body.cnpjCpf"
+          mask="00.000.000/0000-00 || 000.000.000-00"
+          type="text"
+          formControlName="cnpjCpf"
+          class="form-control"
+          placeholder="Digite o cnpj ou o cpf"
+        >
+        </div>
+        <div class="col input">
+          <input
+          [(ngModel)]="body.email"
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Digite o e-mail da empresa"
+        >
+        </div>
+        <div class="mb-3 col input">
+          <input
+            class="form-control"
+            type="file"
+            id="formFileMultiple"
+            formControlName="upload"
+            multiple
+            (change)="escolherArquivos($event)"
+          >
+        </div>
+        <div class="col" style="margin-top: 18px;">
+          <button
+            mat-raised-button
+            [disabled]="form.invalid"
+            [ngClass]="{'btn-secondary': form.invalid, 'btn-primary fw-semibold': !form.invalid}"
+            (click)="btnEnviarCadastro()"
+            type="button"
+            class="btn fw-semibold"
+          >
+            ENVIAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="box-dados">
+
+    <ng-container *ngIf="statusClientVazio === true">
+      <div class="closeVazio">
+        <span
+          data-toggle="tooltip"
+          style="border: none;"
+          title="sair"
+          data-placement="bottom"
+          (click)="sair()"
+          type="button"
+          >
+          <img src="../../../assets//svg/close.svg" alt="">
+        </span>
+      </div>
+
+      <div class="box-img">
+        <img class="img-email" src="../../../assets/img/boletoNaoEnviado.png"/>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="statusClientVazio === false">
+      <span class="header-painel fs-4 font-inter fw-semibold">PAINEL BOLETOS</span>
+      <div class="box-perfil">
+        <span
+          data-toggle="tooltip"
+          style="border: none;"
+          title="editar usuário"
+          data-placement="bottom"
+          (click)="editarDadosUsuario()"
+          type="button"
+          >
+          <img src="../../../assets//svg/perfil.svg" alt="">
+        </span>
+        <span
+          data-toggle="tooltip"
+          style="border: none;"
+          title="sair"
+          data-placement="bottom"
+          (click)="sair()"
+          type="button"
+          style="margin-left: 10px;"
+          >
+          <img src="../../../assets//svg/close.svg" alt="">
+        </span>
+      </div>
+      <div class="box-title-filter">
+        <p class="fs-6 font-inter-nunito">filtros</p>
+      </div>
+      <mat-card class="filter">
+        <div class="box-filter">
+          <div class="input">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pesquisar por cliente"
+              [(ngModel)]="bodyFilter.pesquisarCliente"
+              (ngModelChange)="pesquisarCliente($event)"
+            >
+          </div>
+          <div class="input">
+            <input
+              type="text"
+              mask="00/00/0000"
+              class="form-control"
+              placeholder="Pesquisar por vencimento"
+              [(ngModel)]="bodyFilter.pesquisarVencimento"
+              (ngModelChange)="pesquisarVencimento($event)"
+            >
+          </div>
+          <div class="form-check form-switch check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              (change)="pesquisarBoletoEnviado(checkEnviado)"
+              checked
+              [(ngModel)]="checkEnviado"
+            >
+            <label class="form-check-label fs-6" for="flexSwitchCheckChecked" style="margin-left: -4px;">enviado</label>
+          </div>
+          <div class="form-check form-switch check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              (change)="pesquisarBoletoNaoEnviado(checkNaoEnviado)"
+              checked
+              [(ngModel)]="checkNaoEnviado"
+            >
+            <label class="form-check-label fs-6" for="flexSwitchCheckChecked" style="margin-left: -4px;">aguardando</label>
+          </div>
+        </div>
+      </mat-card>
+      <div class="scroll" style="margin-top: 15px;">
+        <div class="box-card" *ngFor="let dados of bodyCliente?.clients">
+          <mat-card>
+            <span class="fs-6 spanColor font-inter fw-semibold">CLIENTE: <span class="font-inter-nunito" style="margin-left: 13px; color: #69696a;">{{dados?.company}}</span></span>
+            <app-loading style="margin-left: 600px;" *ngIf="statusLoadingCliente"></app-loading>
+            <div class="div-boletos">
+              <span class="fs-6 spanColor font-inter fw-semibold">BOLETOS:</span>
+              <div class="dados">
+                <div
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="{{item?.vencimento}}"
+                  *ngFor="let item of dados.upload"
+                  (click)="deletarBoleto(item, dados)"
+                  [ngClass]="{'boletoAzul': item.status, 'boletoVermelho': !item.status}"
+                >
+                </div>
+              </div>
+              <div class="btns">
+                <span
+                  data-toggle="tooltip"
+                  style="margin-bottom: -6px;"
+                  title="adicionar"
+                  data-placement="right"
+                  type="button"
+                  (click)="adicionarBoleto(dados)"
+                  >
+                  <img src="../../../assets/svg/add.svg" alt="">
+                </span>
+                <span
+                  data-toggle="tooltip"
+                  title="deletar"
+                  data-placement="right"
+                  type="button"
+                  (click)="excluirCliente(dados)"
+                  >
+                  <img src="../../../assets/svg/trash.svg" alt="">
+                </span>
+                <span
+                  data-toggle="tooltip"
+                  style="border: none; margin-top: 6px; margin-bottom: 4px;"
+                  title="editar"
+                  data-placement="right"
+                  type="button"
+                  (click)="editarCliente(dados)"
+                  >
+                  <img src="../../../assets//svg/pencil.svg" alt="">
+                </span>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div class="load-client" *ngIf="statusLoadingClientCenter">
+          <app-loading ></app-loading>
+        </div>
+      </div>
+      <div class="footer-tag">
+        <div class="box-tag">
+          <span class="msgAzul"></span>
+          <span class="fs-6 font-inter-nunito">boleto enviado</span>
+        </div>
+        <div class="box-tag">
+          <span class="msgVermelho"></span>
+          <span class="fs-6 font-inter-nunito">boleto não enviado</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+
+

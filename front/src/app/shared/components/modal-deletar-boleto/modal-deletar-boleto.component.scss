@@ -1,0 +1,27 @@
+.modal-body {
+  font-weight: 500;
+
+  .header-modal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 14px;
+  }
+}
+
+.modal-title {
+  color: #6b6a6a;
+}
+
+.btn-color {
+  background-color: rgb(253, 140, 2);
+  border: none;
+  margin-left: 12px;
+  margin-right: -14px;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}

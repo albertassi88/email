@@ -1,0 +1,23 @@
+.img {
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 10px;
+
+  img {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .img {
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+
+    img {
+      width: 120px;
+      height: 80px;
+    }
+  }
+}
