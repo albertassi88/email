@@ -37,11 +37,19 @@
       </div>
 
       <div class="default-off-painel">
-        <mat-card-title>
-          <p class="font-inter roboto painel" style="font-size: 34px;">Monitore os boletos enviados e os que estão aguardando envio.</p>
-        </mat-card-title>
+        <div class="box-list">
+          <div class="list">
+            <img src="../../../assets/svg/list.svg" alt="">
+          </div>
+          <mat-card-title>
+            <p class="font-inter roboto painel" style="font-size: 34px;">Monitore os boletos enviados e os que estão aguardando envio.</p>
+          </mat-card-title>
+          <div class="btn-testar">
+            <button (click)="testarGratis()">TESTAR GRÁTIS POR 60 DIAS</button>
+          </div>
+        </div>
         <mat-card>
-          <img src="../../../assets/img/painel.png" alt="">
+          <img class="img-painel" src="../../../assets/img/painel.png" alt="">
         </mat-card>
       </div>
     </div>

@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  testarGratis() {
+    this.router.navigate(['/cadastrar']);
+  }
+
   abrirWhatsApp() {
     const numeroTelefone = '+5524988694508';
 
